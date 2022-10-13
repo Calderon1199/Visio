@@ -11,7 +11,7 @@ import Rank from './components/Rank/Rank';
 import './App.css';
 
 const app = new Clarifai.App({
-//  apiKey: 'Hidden'
+ apiKey: 'e0e34c328beb4c7ab0f6967ad06dd450'
 });
 
 
@@ -86,7 +86,7 @@ loadUser = (data) => {
             })
 
         }
-        this.displayFaceBox(this.calculateFaceLocation(response))
+        this.detectBox(this.calculateFaceLocation(response))
       })
       .catch(err => console.log(err));
   }
@@ -111,12 +111,12 @@ loadUser = (data) => {
           ? <div>
               <Logo />
               <Rank
-              name={this.state.user.name}
-              entries={this.state.user.entries}
+                name={this.state.user.name}
+                entries={this.state.user.entries}
               />
               <ImageLinkForm
                 onInputChange={this.onInputChange}
-                onSubmit={this.onSubmit}
+                onButtonSubmit={this.onButtonSubmit}
                />
               <FaceRecognition
               box={box}
